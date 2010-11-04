@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_history">MEID Converter - History</string>
+    <string name="app_name">MEID Converter</string>
+    <string name="inputLabel">Enter Your ESN or MEID</string>
+    <string name="initialInputText">A000001DEF956F</string>
+    <string name="inputTypeLabel">Serial Number Type</string>
+    <string name="copyright">Created by Ghassan Idriss\nghassani@splicedmedia.com</string>
+    <string name="inputError">Must be 8/11/14/18 Digits Long. Use the ESN/MEID DEC Format. Yours was </string>
+    <string name="notificationAcceptedMEIDDec">MEID (DEC) Accepted. Calculating 6 Digit SPC</string>
+    <string name="notificationAcceptedMEIDHex">MEID (HEX) Accepted. Calculating 6 Digit SPC</string>
+    <string name="notificationAcceptedESNHex">ESN (HEX) Accepted. Calculating 6 Digit SPC.</string>
+    <string name="notificationAcceptedESNDec">ESN (DEC) Accepted. Calculating 6 Digit SPC.</string>
+    <string name="alertExceptionTitle">Whoops.</string>
+    <string name="alertButtonConfirm">Ok</string>
+    <string name="alertInputErrorTitle">Whoops..</string>
+    <string name="calcButton">Calculate</string>
+    <string name="historyButton">View Past Calculations</string>
+    <string name="calcViewButton">Calculate Another</string>
+    <string name="historyTitle">Previous Calculations</string>
+     
+</resources>

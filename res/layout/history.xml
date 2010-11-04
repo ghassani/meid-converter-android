@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent" 
+              android:layout_height="fill_parent" 
+              android:orientation="vertical"
+              android:background="#fff"
+              android:padding="10px" >
+    <Button android:id="@+id/calculate"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/calcViewButton" />
+    <TextView android:id="@+id/meid_label"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:editable="false"
+              android:textColor="#000000"
+              android:textSize="10pt"
+              android:gravity="center"
+              android:text="@string/historyTitle" />
+	<ListView android:id="@+id/historyList"
+	 	android:layout_width="wrap_content"
+	 	android:layout_height="wrap_content" />
+
+</LinearLayout>
