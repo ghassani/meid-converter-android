@@ -1,0 +1,7 @@
+ * Android MEID DEC/HEX Converter
+ * @author Ghassan Idriss
+ * @copyright 2010 Spliced Media L.L.C
+
+My first application for android and my first time using Java. Any constructuve comments or notes would be nice, feel free to email me ghassani@gmail.com 
+TODO:
+  Fix TableView for Calculation History
