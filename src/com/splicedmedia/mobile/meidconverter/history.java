@@ -6,13 +6,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableLayout.LayoutParams;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.ListView;
 import android.widget.Toast;
 import android.database.Cursor;
 
@@ -22,7 +20,6 @@ public class history extends Activity{
 	private SqlHelper db;
 	private Cursor history;
 	private TableLayout historyTable;
-	private String historyList[];
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,23 +45,27 @@ public class history extends Activity{
             		);
         			
         			TextView td1 = new TextView(this);
-
+        			td1.setPadding(4,4,4,4);
+        			td1.setText(history.getString(history.getColumnIndex("created_at")));
         			
         			TextView td2 = new TextView(this);
-
+        			td2.setPadding(4,4,4,4);
         			
-
         			if(history.getString(history.getColumnIndex("meid_dec")) == " -- "){
-        				td1.setText(history.getString(history.getColumnIndex("esn_dec")));
+        				td2.setText(history.getString(history.getColumnIndex("esn_dec")));
         			} else{
-        				td1.setText(history.getString(history.getColumnIndex("meid_dec")));
+        				td2.setText(history.getString(history.getColumnIndex("meid_dec")));
         			}
         			
-        			td2.setText(history.getString(history.getColumnIndex("metropcs_spc")));
+        			TextView td3 = new TextView(this);
+        			td3.setPadding(4,4,4,4);
+        			td3.setText(history.getString(history.getColumnIndex("metropcs_spc")));
+        			
 
         			tr.addView(td1);
         			tr.addView(td2);
-
+        			tr.addView(td3);
+        			
         			historyTable.addView(tr);
         			i++;
         			
