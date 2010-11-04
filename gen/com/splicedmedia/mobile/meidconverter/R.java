@@ -15,11 +15,12 @@ public final class R {
     }
     public static final class id {
         public static final int calculate=0x7f060001;
-        public static final int copyright=0x7f060006;
-        public static final int details=0x7f060004;
-        public static final int history=0x7f060005;
-        public static final int meid=0x7f060003;
-        public static final int meid_label=0x7f060002;
+        public static final int clearDB=0x7f060002;
+        public static final int copyright=0x7f060007;
+        public static final int details=0x7f060005;
+        public static final int history=0x7f060006;
+        public static final int meid=0x7f060004;
+        public static final int meid_label=0x7f060003;
         public static final int table=0x7f060000;
     }
     public static final class layout {
@@ -39,6 +40,7 @@ public final class R {
         public static final int app_name_history=0x7f050000;
         public static final int calcButton=0x7f05000e;
         public static final int calcViewButton=0x7f050010;
+        public static final int clearHistoryButton=0x7f050012;
         public static final int copyright=0x7f050005;
         public static final int historyButton=0x7f05000f;
         public static final int historyTitle=0x7f050011;
