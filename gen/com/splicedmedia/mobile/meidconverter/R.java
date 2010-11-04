@@ -14,13 +14,15 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int calculate=0x7f060000;
-        public static final int copyright=0x7f060006;
-        public static final int details=0x7f060004;
-        public static final int history=0x7f060005;
-        public static final int historyList=0x7f060002;
-        public static final int meid=0x7f060003;
-        public static final int meid_label=0x7f060001;
+        public static final int calculate=0x7f060001;
+        public static final int copyright=0x7f060008;
+        public static final int details=0x7f060006;
+        public static final int history=0x7f060007;
+        public static final int meid=0x7f060005;
+        public static final int meid_label=0x7f060002;
+        public static final int table=0x7f060000;
+        public static final int table_header_cell1=0x7f060003;
+        public static final int table_header_cell2=0x7f060004;
     }
     public static final class layout {
         public static final int history=0x7f030000;

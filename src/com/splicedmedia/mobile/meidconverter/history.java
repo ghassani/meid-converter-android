@@ -8,7 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableLayout.LayoutParams;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.database.Cursor;
 
 public class history extends Activity{
@@ -16,8 +21,8 @@ public class history extends Activity{
 	private Button calculateButton;
 	private SqlHelper db;
 	private Cursor history;
-	private ListView historyList;
-	private String historyListItems[];
+	private TableLayout historyTable;
+	private String historyList[];
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,28 +30,52 @@ public class history extends Activity{
         setContentView(R.layout.history);
         
         calculateButton = (Button) findViewById(R.id.calculate);
-        historyList = (ListView) findViewById(R.id.historyList);
+        historyTable = (TableLayout) findViewById(R.id.table);
         
         try{
         	db = new SqlHelper(this);
         	
         	history = db.getAllHistory();
 
-        	if(history.getCount() > 0 && history.moveToFirst()) {
+        	if(history.getCount() > 0 ) {
+        		history.moveToFirst();
         		int i=0;
         		do {
+        			TableRow tr = new TableRow(this);
+        			tr.setLayoutParams(new LayoutParams(
+                            LayoutParams.FILL_PARENT,
+                            LayoutParams.WRAP_CONTENT)
+            		);
         			
-        			historyListItems[i] = "1";
+        			TextView td1 = new TextView(this);
+
+        			
+        			TextView td2 = new TextView(this);
+
+        			
+
+        			if(history.getString(history.getColumnIndex("meid_dec")) == " -- "){
+        				td1.setText(history.getString(history.getColumnIndex("esn_dec")));
+        			} else{
+        				td1.setText(history.getString(history.getColumnIndex("meid_dec")));
+        			}
+        			
+        			td2.setText(history.getString(history.getColumnIndex("metropcs_spc")));
+
+        			tr.addView(td1);
+        			tr.addView(td2);
+
+        			historyTable.addView(tr);
         			i++;
         			
         		}while(history.moveToNext());
         		
-        		//historyList.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1 , historyListItems));
+        		
         	}
         	
         }catch(Exception e)
         {
-        	displayAlert(e.getMessage(),"","");
+        	displayToastNotification(e.getMessage(),Toast.LENGTH_LONG);
         }
         
 
@@ -79,5 +108,16 @@ public class history extends Activity{
        });
     	AlertDialog alert = dialog.create();
     	alert.show();
+    }
+    
+    /* @function displayToastNotification
+     * @param String message The message to display
+     * @param int length The length of the message. Feed it a Valid Toast Length Constant
+     * @return VOID
+     * Displays a Toast notification for a certain length
+    */
+    protected void displayToastNotification(String message, int length)
+    {
+    	Toast.makeText(getApplicationContext(), message, length).show();
     }
 }

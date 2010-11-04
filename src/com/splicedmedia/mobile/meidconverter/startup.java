@@ -312,9 +312,11 @@ public class startup extends Activity{
 
     	}catch(NoSuchAlgorithmException e)
     	{
+    		// todo; handle error
     		return "ERROR";
     	} catch(UnsupportedEncodingException e)
     	{
+    		// todo; handle error
     		return "ERROR";
     	}
     	
