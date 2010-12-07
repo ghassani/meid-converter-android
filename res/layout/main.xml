@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 
-	*TODO test meid: 268435458915701359 / A000001DEF956F = ?????? 
-	test esn: 02003541147 = 109216
- -->
+<!-- Copyright (C) 2010 Gassan Idriss
+ 
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent" 
               android:layout_height="fill_parent" 
@@ -21,8 +31,7 @@
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:text="@string/initialInputText"
-              android:gravity="center"
-              android:width="300px" />
+              android:gravity="center" />
     <Button android:id="@+id/calculate"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -31,19 +40,17 @@
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:editable="false"
-              android:height="150px"
               android:textColor="#ffffff"
               android:background="@layout/resultbox"
-              android:text=""
+              android:text="Enter a MEID or DEC to Calculate"
+              android:gravity="center"
               android:padding="10px" />
     <Button android:id="@+id/history"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/historyButton" />
-    <TextView android:id="@+id/copyright"
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
-              android:editable="false"
-              android:textColor="#000000"
-              android:text="@string/copyright" />
+    <Button android:id="@+id/about"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/aboutButton" />
 </LinearLayout>

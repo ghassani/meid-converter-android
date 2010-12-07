@@ -1,3 +1,20 @@
+/*
+ * Copyright (C) 2010 Gassan Idriss
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * 
+ */
+
 package com.splicedmedia.android.meidconverter;
 
 import android.app.Activity;
@@ -16,18 +33,23 @@ import android.database.Cursor;
 
 public class History extends Activity{
 	
-	private Button calculateButton,clearbutton;
+	private Button calculateButton,clearButton;
 	private SqlHelper db;
 	private Cursor history;
 	private TableLayout historyTable;
+
+	private static final int DIALOG_CLEAR_HISTORY = 0;
 	
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.history);
-        
+      
         calculateButton = (Button) findViewById(R.id.calculate);
+        clearButton = (Button) findViewById(R.id.clearDB);
         historyTable = (TableLayout) findViewById(R.id.table);
+        
         
         try{
         	db = new SqlHelper(this);
@@ -40,8 +62,8 @@ public class History extends Activity{
         		do {
         			TableRow tr = new TableRow(this);
         			tr.setLayoutParams(new LayoutParams(
-                            LayoutParams.FILL_PARENT,
-                            LayoutParams.WRAP_CONTENT)
+                       LayoutParams.FILL_PARENT,
+                       LayoutParams.WRAP_CONTENT)
             		);
         			
         			TextView td1 = new TextView(this);
@@ -70,8 +92,6 @@ public class History extends Activity{
         			i++;
         			
         		}while(history.moveToNext());
-        		
-        		
         	}
         	
         }catch(Exception e)
@@ -83,36 +103,53 @@ public class History extends Activity{
 
         calculateButton.setOnClickListener(new View.OnClickListener(){
         	public void onClick(View v) {
-        		 Intent startup = new Intent(v.getContext(), Calculate.class);
-                 startActivityForResult(startup, 0);
+        		 Intent calculate = new Intent(v.getContext(), Calculate.class);
+                 startActivityForResult(calculate, 0);
         	}
         });
         
-       
+        
+        
+        clearButton.setOnClickListener(new View.OnClickListener(){
+        	public void onClick(View v) {
+        		showDialog(DIALOG_CLEAR_HISTORY);
+        	}
+       });
+
     }
     
-    /* @function displayAlert
-     * @param String message The Message to display
-     * @param String title The Title of the Alert Box to display
-     * @param String btnlabel The text to display on the button
-     * @return VOID
-     * Displays a simple one button alert message
+    /* @function onCreateDialog
+     * @param int id
     */
-    protected void displayAlert(String message, String title, String btnlabel)
-    {    	
+    @Override
+    protected AlertDialog onCreateDialog(int id) {
     	AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-    	dialog.setMessage(message)
-    	.setCancelable(false)   
-    	.setTitle(title)
-    	.setPositiveButton(btnlabel, new DialogInterface.OnClickListener() {
-           public void onClick(DialogInterface dialog, int id) {
-                History.this.finish();
-           }
-       });
+    	
+    	switch(id){
+    	case DIALOG_CLEAR_HISTORY:
+    		dialog.setMessage(getText(R.string.clearHistoryMessage).toString())
+    		  .setCancelable(false)
+    		  .setTitle(getText(R.string.alertClearHistoryTitle).toString())
+    		  .setPositiveButton(getText(R.string.alertButtonConfirm).toString(), new DialogInterface.OnClickListener() {
+    			  public void onClick(DialogInterface dialog, int id) {
+    				  db.clearHistory();
+    			      Intent calculate = new Intent(getApplicationContext(), Calculate.class);
+    			      startActivityForResult(calculate, 0);
+    			  }
+    		  }).setNegativeButton(getText(R.string.alertButtonCancel).toString(), new DialogInterface.OnClickListener() {
+    			  public void onClick(DialogInterface dialog, int id) {
+    				  return;
+    			  }
+    		  });
+    		break;
+    	default:
+    		break;
+    	}
+    	
     	AlertDialog alert = dialog.create();
     	alert.show();
+    	return alert;
     }
-    
     /* @function displayToastNotification
      * @param String message The message to display
      * @param int length The length of the message. Feed it a Valid Toast Length Constant

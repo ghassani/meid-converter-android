@@ -1,18 +1,25 @@
+/*
+ * Copyright (C) 2010 Gassan Idriss
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.splicedmedia.android.meidconverter;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
-
-
-/**
- * @author Ghassan Idriss
- * @copyright 2010 Spliced Media L.L.C
- * @website http://www.splicedmedia.com
- * @package com.splicedmedia.android.meidconverter
- * @subpackage MeidHelper
- */
 
 public class MeidHelper {
 	/* Serial Testing Patterns */
@@ -45,7 +52,8 @@ public class MeidHelper {
 	 */
 	public MeidHelper(CharSequence input) throws Exception {
 		userInput = input;
-		inputString = input.toString();
+		
+		inputString = input.toString().toUpperCase();
 		
 		if(testInput(inputString,meidDecTest)){
 			isMEID = true;
@@ -59,8 +67,6 @@ public class MeidHelper {
 		} else if(testInput(inputString,esnHexTest)){
 			isESN = true;
 			isHEX = true;
-		} else {
-			//throw new Exception();
 		}
 	}
 		
@@ -144,13 +150,10 @@ public class MeidHelper {
     	}
     	String input = getEsnDec();
     	String subSet = input.substring(8).toString();
-		double v = (Math.pow(2, 5 + Character.getNumericValue(input.charAt(0)) + Character.getNumericValue(input.charAt(1)) + Character.getNumericValue(input.charAt(2))) - 1);
-		double v2 = (Integer.parseInt(subSet, 10) + 199) * (23 + Character.getNumericValue(input.charAt(3)) + Character.getNumericValue(input.charAt(4)) + Character.getNumericValue(input.charAt(5)) + Character.getNumericValue(input.charAt(6)) + Character.getNumericValue(input.charAt(7)) + Character.getNumericValue(input.charAt(8)) + Character.getNumericValue(input.charAt(9)) + Character.getNumericValue(input.charAt(10)));
-		double SPC1 = v * v2;
-		long SPC2 = (long) SPC1;
+		double SPC = (Math.pow(2, 5 + Character.getNumericValue(input.charAt(0)) + Character.getNumericValue(input.charAt(1)) + Character.getNumericValue(input.charAt(2))) - 1) * (Integer.parseInt(subSet, 10) + 199) * (23 + Character.getNumericValue(input.charAt(3)) + Character.getNumericValue(input.charAt(4)) + Character.getNumericValue(input.charAt(5)) + Character.getNumericValue(input.charAt(6)) + Character.getNumericValue(input.charAt(7)) + Character.getNumericValue(input.charAt(8)) + Character.getNumericValue(input.charAt(9)) + Character.getNumericValue(input.charAt(10)));
+		long SPC2 = (long) SPC;
 		String spc = Long.toString(SPC2);
-    	metroSPC = spc.substring(spc.length() - 6);
-    	return metroSPC;
+    	return spc.substring(spc.length() - 6);
     }
     
     /* @function calculatePesn

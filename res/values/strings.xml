@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 Gassan Idriss
+ 
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
 <resources>
     <string name="app_name_history">MEID Converter - History</string>
     <string name="app_name">MEID Converter</string>
     <string name="inputLabel">Enter Your ESN or MEID</string>
-    <string name="initialInputText">A000001DEF956F</string>
+    <string name="initialInputText"></string>
     <string name="inputTypeLabel">Serial Number Type</string>
-    <string name="copyright">Created by Ghassan Idriss\nghassani@splicedmedia.com</string>
-    <string name="inputError">Must be 8/11/14/18 Digits Long. Use the ESN/MEID DEC Format. Yours was </string>
-    <string name="notificationAcceptedMEIDDec">MEID (DEC) Accepted. Calculating 6 Digit SPC</string>
-    <string name="notificationAcceptedMEIDHex">MEID (HEX) Accepted. Calculating 6 Digit SPC</string>
-    <string name="notificationAcceptedESNHex">ESN (HEX) Accepted. Calculating 6 Digit SPC.</string>
-    <string name="notificationAcceptedESNDec">ESN (DEC) Accepted. Calculating 6 Digit SPC.</string>
+    <string name="inputError">Must be proper MEID/ESN HEX or DEC length</string>
     <string name="alertExceptionTitle">Whoops.</string>
     <string name="alertButtonConfirm">Ok</string>
+    <string name="alertButtonCancel">Cancel</string>
     <string name="alertInputErrorTitle">Whoops..</string>
     <string name="calcButton">Calculate</string>
     <string name="historyButton">View Past Calculations</string>
     <string name="calcViewButton">Calculate Another</string>
     <string name="historyTitle">Previous Calculations</string>
     <string name="clearHistoryButton">Clear History</string>
+    <string name="alertClearHistoryTitle">Clear History</string>
+    <string name="clearHistoryMessage">Are you sure you wan\'t to clear all history?</string>
+    <string name="seriousErrorMessage">A serious error was encountered. Application will now exit.</string>
+    <string name="aboutButton">About</string>
+    <string name="aboutMessage">v0.5.2\nCreated by Gassan Idriss\nghassani@splicedmedia.com\n\nSource code and more information available on GitHub at: \n\nhttps://github.com/ghassani/Android-MEID-Converter\n\nLicensed under the Apache License, Version 2.0</string>
+    <string name="aboutMessageTitle">About</string>
+    <string name="aboutReturnButton">Return</string>
 </resources>

@@ -1,3 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 Gassan Idriss
+ 
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
 <resources>
+    <string name="app_name_history">MEID Converter - Historia</string>
+    <string name="app_name">MEID Converter</string>
+    <string name="inputLabel">Ingrese su ESN o MEID</string>
+    <string name="initialInputText"></string>
+    <string name="inputTypeLabel">Escriba el número de serie</string>
+    <string name="alertExceptionTitle">¡Vaya.</string>
+    <string name="alertButtonConfirm">Ok</string>
+    <string name="alertButtonCancel">Cancelar</string>
+    <string name="alertInputErrorTitle">¡Vaya.</string>
+    <string name="calcButton">Calcular</string>
+    <string name="historyButton">Ver anteriores cálculos</string>
+    <string name="calcViewButton">Calcular Otro</string>
+    <string name="historyTitle">Los Cálculos Previos</string>
+    <string name="clearHistoryButton">Borrar el historial de</string>
+    <string name="alertClearHistoryTitle">Borrar el historial de</string>
+    <string name="clearHistoryMessage">¿Está seguro que wan \'t para borrar toda la historia?</string>
+    <string name="seriousErrorMessage">Un grave error fue encontrado. Aplicación se cerrará ahora.</string>
+    <string name="aboutButton">Acerca de</string>
+    <string name="aboutMessage">v0.5.2\nCreated por Gassan Idriss\nghassani@splicedmedia.com\n\nSource código y más información disponibles en GitHub en:\n\nhttps://github.com/ghassani/Android MEID-Converter\n\nLicenciado bajo la licencia Apache, versión 2.0</string>
+    <string name="aboutMessageTitle">Acerca de</string>
+    <string name="aboutReturnButton">Volver</string>
 </resources>
